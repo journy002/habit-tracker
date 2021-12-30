@@ -14,7 +14,7 @@ class habit extends Component {
         this.setState({ count: count < 0 ? 0 : count })
     }
  
-    render() {
+    render() { 
         return ( 
             <li className='habit'>
                 <span className='habit-name'>Reading</span>
