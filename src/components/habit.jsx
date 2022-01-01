@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
-export default class Habit extends Component {
-  handleIncrement = () => {
+class Habit extends Component {
+  habitIncrement = () => {
     this.props.onIncrement(this.props.habit);
   };
 
-  hadleDecrement = () => {
+  habitDecrement = () => {
     this.props.onDecrement(this.props.habit);
   };
 
@@ -16,16 +16,15 @@ export default class Habit extends Component {
       <li className="habit">
         <span className="habit-name">{name}</span>
         <span className="habit-count">{count}</span>
-
         <button
           className="habit-button habit-increase"
-          onClick={this.handleIncrement}
+          onClick={this.habitIncrement}
         >
           <i className="fas fa-plus-square"></i>
         </button>
         <button
           className="habit-button habit-decrease"
-          onClick={this.hadleDecrement}
+          onClick={this.habitDecrement}
         >
           <i className="fas fa-minus-square"></i>
         </button>
@@ -36,3 +35,4 @@ export default class Habit extends Component {
     );
   }
 }
+export default Habit;

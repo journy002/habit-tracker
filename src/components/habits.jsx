@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Habit from "./habit";
 
-export default class Habits extends Component {
+class Habits extends Component {
   state = {
     habits: [
       { id: 1, name: "Reading", count: 0 },
@@ -10,21 +10,22 @@ export default class Habits extends Component {
     ],
   };
 
-  habitIncrement = (habit) => {
+  handleIncrement = (habit) => {
     const habits = [...this.state.habits];
     const index = habits.indexOf(habit);
     habits[index].count++;
-    this.setState(habits);
+    this.setState({ habits: habits });
   };
 
-  habitDecrement = (habit) => {
+  handleDecrement = (habit) => {
     const habits = [...this.state.habits];
     const index = habits.indexOf(habit);
-    habits[index].count--;
-    this.setState(habits);
+    const count = habits[index].count - 1;
+    habits[index].count = count > 0 ? count : 0;
+    this.setState({ habits });
   };
 
-  habitDelete = (habit) => {};
+  handleDelete = (habit) => {};
 
   render() {
     return (
@@ -33,12 +34,12 @@ export default class Habits extends Component {
           <Habit
             key={item.id}
             habit={item}
-            onIncrement={this.habitIncrement}
-            onDecrement={this.habitDecrement}
-            onDelete={this.habitDelete}
+            onIncrement={this.handleIncrement}
+            onDecrement={this.handleDecrement}
           />
         ))}
       </ul>
     );
   }
 }
+export default Habits;
