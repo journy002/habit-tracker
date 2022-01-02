@@ -16,8 +16,6 @@ class App extends Component {
   mainIncrement = (habit) => {
     const habits = [...this.state.habits];
     const index = habits.indexOf(habit);
-    console.log(habit, "habit");
-    console.log(index, "increment");
     habits[index].count++;
     this.setState({ habits: habits });
   };
@@ -43,6 +41,15 @@ class App extends Component {
     this.setState({ habits });
   };
 
+  handleReset = () => {
+    const habits = this.state.habits.map((item) => {
+      item.count = 0;
+      return item;
+    });
+
+    this.setState(habits);
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -56,6 +63,8 @@ class App extends Component {
           handleDelete={this.mainDelete}
           // navbar
           onAdd={this.handleAdd}
+          // Reset
+          onReset={this.handleReset}
         />
       </React.Fragment>
     );

@@ -26,18 +26,23 @@ class Habits extends Component {
 
   render() {
     return (
-      <ul>
+      <>
         <HabitAddForm onAdd={this.handleAdd} />
-        {this.props.habits.map((item) => (
-          <Habit
-            key={item.id}
-            habit={item}
-            onIncrement={this.controlIncrement}
-            onDecrement={this.controlDecrement}
-            onDelete={this.controlDelete}
-          />
-        ))}
-      </ul>
+        <ul>
+          {this.props.habits.map((item) => (
+            <Habit
+              key={item.id}
+              habit={item}
+              onIncrement={this.controlIncrement}
+              onDecrement={this.controlDecrement}
+              onDelete={this.controlDelete}
+            />
+          ))}
+        </ul>
+        <button className="habits-reset" onClick={this.props.onReset}>
+          Reset
+        </button>
+      </>
     );
   }
 }
