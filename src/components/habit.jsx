@@ -9,6 +9,11 @@ class Habit extends Component {
     this.props.onDecrement(this.props.habit);
   };
 
+  handleDelete = () => {
+    console.log("delete");
+    this.props.onDelete(this.props.habit);
+  };
+
   render() {
     const { name, count } = this.props.habit;
 
@@ -28,7 +33,10 @@ class Habit extends Component {
         >
           <i className="fas fa-minus-square"></i>
         </button>
-        <button className="habit-button habit-delete">
+        <button
+          className="habit-button habit-delete"
+          onClick={this.handleDelete}
+        >
           <i className="fas fa-trash"></i>
         </button>
       </li>
