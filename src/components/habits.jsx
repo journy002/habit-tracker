@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Habit from "./habit";
+import HabitAddForm from "./habitAddForm";
 
 class Habits extends Component {
   // this.props.handleIncrement() 괄호 안에 this.props.habits를 넣어 주었는데 에러가 떴다.
@@ -19,9 +20,14 @@ class Habits extends Component {
     this.props.handleDelete(habit);
   };
 
+  handleAdd = (name) => {
+    this.props.onAdd(name);
+  };
+
   render() {
     return (
       <ul>
+        <HabitAddForm onAdd={this.handleAdd} />
         {this.props.habits.map((item) => (
           <Habit
             key={item.id}

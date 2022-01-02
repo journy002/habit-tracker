@@ -1,3 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: blanchedalmond;
+}
+
+.navbar-logo {
+  margin-right: 0.5em;
+  color: green;
+}
+
+.navbar-count {
+  display: inline-block;
+  margin-left: 0.2em;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 2rem;
+  color: white;
+  background-color: green;
+  text-align: center;
+  line-height: 2.5rem;
+  border-radius: 50%;
+}
+
+.add-input {
+  margin-right: 0.2em;
+}
+
+.add-button {
+  padding: 0.3em 0.5em;
+  height: 100%;
+  background-color: green;
+  color: white;
+}
+
 button {
   border: 0;
   outline: none;

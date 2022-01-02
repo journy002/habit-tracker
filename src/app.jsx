@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import HabitAddForm from "./components/habitAddForm";
 import Habits from "./components/habits";
 import Navbar from "./components/navbar";
 
@@ -34,9 +35,17 @@ class App extends Component {
     this.setState({ habits });
   };
 
+  handleAdd = (name) => {
+    const habits = [
+      ...this.state.habits,
+      { id: Date.now(), name: name, count: 0 },
+    ];
+    this.setState({ habits });
+  };
+
   render() {
     return (
-      <>
+      <React.Fragment>
         <Navbar
           totalCount={this.state.habits.filter((item) => item.count > 0).length}
         />
@@ -45,8 +54,10 @@ class App extends Component {
           handleIncrement={this.mainIncrement}
           handleDecrement={this.mainDecrement}
           handleDelete={this.mainDelete}
+          // navbar
+          onAdd={this.handleAdd}
         />
-      </>
+      </React.Fragment>
     );
   }
 }
