@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import HabitAddForm from "./components/habitAddForm";
 import Habits from "./components/habits";
 import Navbar from "./components/navbar";
 
@@ -52,7 +51,7 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div>
         <Navbar
           totalCount={this.state.habits.filter((item) => item.count > 0).length}
         />
@@ -66,7 +65,7 @@ class App extends Component {
           // Reset
           onReset={this.handleReset}
         />
-      </React.Fragment>
+      </div>
     );
   }
 }
