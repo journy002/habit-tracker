@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import Habit from "./habit";
 import HabitAddForm from "./habitAddForm";
 
-class Habits extends Component {
+class Habits extends PureComponent {
   // this.props.handleIncrement() 괄호 안에 this.props.habits를 넣어 주었는데 에러가 떴다.
   // 에러가 난 이유는 this.props.habits를 map으로 돌리면 요소를 하나씩 하나씩 돌기 때문에
   // 요소를 habit={item}으로 하나씩 전달해서 요소의 데이터를 사용하면 되지만
@@ -33,7 +33,6 @@ class Habits extends Component {
             <Habit
               key={item.id}
               habit={item}
-              count={item.count}
               onIncrement={this.controlIncrement}
               onDecrement={this.controlDecrement}
               onDelete={this.controlDelete}
